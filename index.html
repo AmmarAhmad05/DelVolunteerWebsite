@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volunteer Position Near me</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Concert+One&family=Gluten:wght@100..900&family=Signika+Negative:wght@300..700&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="tab-container">
+    <button class="tablink" onclick="langName('Home', this, 'rgb(243, 122, 122)')" id="defaultOpen">HOME</button>
+    <button class="tablink" onclick="langName('Organizations', this, 'rgb(51, 124, 249)')">ORGANIZATIONS</button>
+    <button class="tablink" onclick="langName('Help', this, 'rgb(234, 215, 93)')">CONTACT</button>
+</div>
+
+<div id="Home" class="tabcontent">
+    <br>
+    <div class="welcome-message">
+        <h1>Welcome to Volunteer Connect</h1>
+        <br>
+        <h2>Connecting Passion with Purpose</h2>
+    </div>
+    <br>
+    <div class="mission-statement">
+        <h1>Our Mission</h1>
+        <br>
+        <div class="mission-inside">
+            <h2>To empower individuals to make a positive impact in their communities by connecting them with meaningful volunteer opportunities that match their skills and passions. We believe in creating a world where everyone has the chance to contribute to the greater good, transforming both their lives and the organizations they help.</h2>
+        </div>
+    </div>
+    <br>
+    <div class="why-statement">
+        <h1>Why Volunteer With Us?</h1>
+        <br>
+        <div class="why-list">
+            <h2><strong>Discover Opportunities:</strong> Access a wide range of volunteering opportunities tailored to your interests and skills.</h2>
+        </div>
+        <div class="why-list">
+            <h2><strong>Make a Difference:</strong> Each volunteering stint is a step towards positive change, making a tangible impact in your community.</h2>
+        </div>
+        <div class="why-list">
+            <h2><strong>Grow Personally & Professionally:</strong> Develop new skills, meet like-minded individuals, and expand your network.</h2>
+        </div>
+    </div>
+    <br>
+    <div class="conclusion">
+        <h2>Whether you're looking to give back, build your resume, or simply connect with your community, Volunteer Connect is your gateway to making a difference. Start your volunteering journey today!</h2>
+    </div>
+    <br>
+    <div class="home-page">
+        <div id="opportunity-info">
+        <h1>Volunteering Opportunity Generator</h1>
+        <br>
+        <h2>Generate a Volunteer Position Near me</h2>
+        <br>            
+        </div>
+        <br>
+        <div class="random-button">
+            <button onclick="aggregateVolunteerInfo()" type="button">Generate</button>
+        </div>
+    </div>
+</div>
+
+<div id="Organizations" class="tabcontent">
+    <div class="organization-page">
+        <h1>Organizations</h1>
+    </div>
+</div>
+
+<div id="Help" class="tabcontent">
+    <div class="form-container">
+        <h1>Organization Submission Form</h1><br>
+        <form action="https://api.web3forms.com/submit" method="POST" class="orgForm">
+            <input type="hidden" name="access_key" value="c3a7a904-9a60-4802-ad46-ab81f2c4095e">
+            <label for="orgName">ORGANIZATION NAME:</label><br>
+            <input type="text" id="orgName" name="orgName" placeholder="Name (Required)" required><br>
+            <label for="orgName">EMAIL:</label><br>
+            <input type="email" id="orgEmail" name="email" placeholder="Email (Required)" required><br>
+            <label for="orgLink">VOLUNTEER PAGE LINK:</label><br>
+            <input type="url" id="orgLink" name="orgLink" placeholder="Link (Required)" required><br>
+            <label for="orgImage">MESSAGE:</label><br>
+            <textarea id="messageBox" name="message" placeholder="Enter your message here" required></textarea>
+            <br>
+            <div class="date-range-container">
+                <div class="date-input-container">
+                    <label for="orgStartDate">START DATE:</label><br>
+                    <input type="date" id="orgStartDate" name="orgStartDate" required><br>
+                </div>
+                <div class="date-input-container">
+                    <label for="orgEndDate">END DATE:</label><br>
+                    <input type="date" id="orgEndDate" name="orgEndDate" required><br>
+                </div>
+            </div>
+            <br>
+            <div class="button-container">
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+    <br>
+    <div class="contact-info">
+        <h1>Contact</h1>
+        <br>
+        <h2>Emails:</h2>
+        <p><span>bsharief@udel.edu <br> tahamou@udel.edu <br> ammarahm@udel.edu <br> kasingh@udel.edu</span></p>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

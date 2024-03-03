@@ -1,0 +1,135 @@
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   font-family: "Urbanist", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: bold;
+}
+
+body{
+   background: whitesmoke;
+   
+}
+
+/* Container for the tab links to enable flex layout */
+.tab-container {
+   display: flex;
+   justify-content: space-around;
+   flex-wrap: wrap;
+   background: #f0f0f0; /* Example background color for the tabs container */
+   padding: 10px 0;
+}
+
+.tablink {
+   flex: 1; /* Allows the tabs to grow and fill up the container */
+   background-color: rgba(0, 0, 0, 0.5);
+   color: white;
+   text-align: center;
+   border: none;
+   outline: none;
+   cursor: pointer;
+   padding: 14px 16px;
+   font-size: 17px;
+   min-width: 100px; /* Minimum width for smaller screens */
+   margin: 2px;
+   border-radius: 25px; /* Rounded corners for tabs */
+   transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+.tablink:hover {
+   background-color: #e62107;
+}
+
+/* Style the tab content */
+.tabcontent {
+   color: black;
+   display: none;
+   padding: 50px;
+   text-align: center;
+   background: white; /* Background color for content */
+   border-radius: 2px; /* Rounded corners for content */
+}
+
+p {
+   font-family: "Madimi One", sans-serif;
+   font-weight: 400;
+   font-style: normal; 
+   padding: 15px;
+}
+
+span {
+   color: red;
+   padding: 5px;
+}
+
+#Home {
+   background-color: background-color(243, 122, 122);
+}
+
+#Organizations {
+   background-color: background-color(51, 124, 249);
+}
+
+#Help {
+   background-color: background-color(234, 215, 93);
+}
+
+.contact-info {
+   margin-top: 20px;
+   background: #eee; /* Light background for the contact info section */
+   padding: 20px;
+   border-radius: 10px;
+}
+
+.search-bar {
+   margin-top: 20px;
+   display: flex;
+   justify-content: center;
+   gap: 10px; /* Spacing between the input and the button */
+}
+
+.search-bar input {
+   padding: 10px;
+   border-radius: 5px;
+   border: 1px solid #ccc;
+   width: 60%; /* Search input takes 60% of the width */
+}
+
+.search-bar button {
+   padding: 10px 15px;
+   border-radius: 5px;
+   cursor: pointer;
+   background-color: #5b548a; /* A matching color for the button */
+   color: white;
+   border: none;
+}
+
+/* Responsive search bar */
+@media screen and (max-width: 768px) {
+   .search-bar {
+       flex-direction: column;
+   }
+   
+   .search-bar input,
+   .search-bar button {
+       width: 90%; /* Full width for smaller screens */
+   }
+}
+
+@media screen and (max-width: 768px) {
+   .tablink {
+       width: auto; /* Allow the width to auto-adjust */
+   }
+   .tabcontent p {
+       flex-direction: column;
+   }
+}
+
+button{
+   background-color: #04AA6D;
+   color: white;
+   width: 100px; 
+   height: 50px;
+}
