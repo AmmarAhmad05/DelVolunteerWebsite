@@ -11,7 +11,6 @@ function langName(name, elmnt, color) {
     document.getElementById(name).style.display = "block";
     elmnt.style.backgroundColor = color;
  }
- // Get the element with id="defaultOpen" and click on it
  document.getElementById("defaultOpen").click();
 
 
@@ -55,7 +54,6 @@ function aggregateVolunteerInfo() {
         const randomIndex = Math.floor(Math.random() * volunteeringData.opportunities.length);
         const opportunity = volunteeringData.opportunities[randomIndex];
         
-        // Target the new container for the generated opportunity
         const opportunityInfoContainer = document.getElementById('opportunity-info');
         
         opportunityInfoContainer.innerHTML = `<h1>${opportunity.institution}</h1>
@@ -71,14 +69,10 @@ function aggregateVolunteerInfo() {
 function displayOrganizations() {
     if (volunteeringData.opportunities.length > 0) {
         const orgContainer = document.querySelector('#Organizations');
-        
-        // Clear the container to prevent duplication if the function is called multiple times
         orgContainer.innerHTML = '';
 
         volunteeringData.opportunities.forEach(opportunity => {
             const pTag = document.createElement('p');
-
-            // Wrap the image in an anchor tag that navigates to the opportunity link
             pTag.innerHTML = opportunity.imageUrl ? `<a href="${opportunity.link}" target="_blank"><img src="${opportunity.imageUrl}" alt="${opportunity.institution} Image" style="width:100px; height:auto;"></a><br>` : '';
             pTag.innerHTML += `<br> <a href="${opportunity.link}" target="_blank">${opportunity.institution}</a> `;
 

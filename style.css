@@ -13,17 +13,16 @@ body{
    
 }
 
-/* Container for the tab links to enable flex layout */
 .tab-container {
    display: flex;
    justify-content: space-around;
    flex-wrap: wrap;
-   background: #f0f0f0; /* Example background color for the tabs container */
+   background: #f0f0f0; 
    padding: 10px 0;
 }
 
 .tablink {
-   flex: 1; /* Allows the tabs to grow and fill up the container */
+   flex: 1; 
    background-color: rgba(0, 0, 0, 0.5);
    color: white;
    text-align: center;
@@ -32,24 +31,25 @@ body{
    cursor: pointer;
    padding: 14px 16px;
    font-size: 17px;
-   min-width: 100px; /* Minimum width for smaller screens */
+   min-width: 100px; 
    margin: 2px;
-   border-radius: 25px; /* Rounded corners for tabs */
-   transition: background-color 0.3s; /* Smooth transition for hover effect */
+   border-radius: 5px; 
+   transition: background-color 0.3s; 
+   transition: all .3s ease;
+   box-shadow: 0 4px 8px rgba(0, 0, 0, .2);
 }
 
 .tablink:hover {
-   background-color: #e62107;
+   background-color: #000000;
+   transform: scale(1.01);
 }
 
-/* Style the tab content */
 .tabcontent {
    color: black;
    display: none;
    padding: 50px;
    text-align: center;
-   background: white; /* Background color for content */
-   border-radius: 2px; /* Rounded corners for content */
+   background: white; 
 }
 
 p {
@@ -60,16 +60,119 @@ p {
 }
 
 span {
-   color: red;
+   color: rgb(0, 0, 0);
    padding: 5px;
 }
 
 #Home {
-   background-color: background-color(243, 122, 122);
+   display: flex;
+}
+
+#Home a{
+   color: green; 
+   text-decoration: none; 
 }
 
 #Organizations {
-   background-color: background-color(51, 124, 249);
+   max-width: 80%; 
+   margin: 20px auto; 
+   padding: 20px; 
+   background-color: #f0f0f0; 
+   border-radius: 10px; 
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+
+.welcome-message{
+   max-width: 80%; 
+   margin: 20px auto; 
+   padding: 20px; 
+   background-color: #f0f0f0; 
+   border-radius: 10px; 
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+
+
+
+.mission-statement{
+   max-width: 80%; 
+   margin: 20px auto; 
+   padding: 20px; 
+   background-image: linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)), url(banner.jpg); 
+   background-size: cover;
+   background-position: center;
+   border-radius: 10px; 
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+
+.mission-statement h1{
+   max-width: 30%; 
+   margin: 20px auto; 
+   padding: 20px; 
+   background-color: rgba(255, 255, 255, 0.6); 
+   border-radius: 10px; 
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); 
+}
+
+.mission-inside{
+   max-width: 80%; 
+   margin: 20px auto; 
+   padding: 20px; 
+   background-color: rgba(153, 255, 189, 0.9); 
+   border-radius: 10px; 
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); 
+}
+
+.why-statement{
+   max-width: 80%; 
+   margin: 20px auto; 
+   padding: 20px; 
+   background-image: linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)), url(whybanner.jpeg); 
+   background-size: cover;
+   background-position: center;
+   border-radius: 10px; 
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+
+.why-statement h1{
+   max-width: 40%; 
+   margin: 20px auto; 
+   padding: 20px; 
+   background-color: rgba(255, 255, 255, 0.6); 
+   border-radius: 10px; 
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); 
+}
+
+.why-list {
+   max-width: 80%; 
+   margin: 20px auto; 
+   padding: 20px; 
+   background-color: rgba(149, 239, 255, 0.9); 
+   border-radius: 10px; 
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); 
+}
+
+
+.conclusion{
+   max-width: 80%; 
+   margin: 20px auto; 
+   padding: 20px; 
+   background-color: #f0f0f0; 
+   border-radius: 10px; 
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+
+#Organizations a {
+   color: black;
+   text-decoration: none;
+}
+
+#Organizations img {
+    
+   transition: transform .2s ease; 
+}
+
+#Organizations img:hover {
+    transform: scale(1.5); 
 }
 
 #Help {
@@ -78,35 +181,40 @@ span {
 
 .contact-info {
    margin-top: 20px;
-   background: #eee; /* Light background for the contact info section */
+   background: #eee; 
    padding: 20px;
    border-radius: 10px;
+   box-shadow: 0 4px 8px rgba(0, 0, 0, .1);
 }
 
 .search-bar {
    margin-top: 20px;
    display: flex;
    justify-content: center;
-   gap: 10px; /* Spacing between the input and the button */
+   gap: 10px; 
 }
 
 .search-bar input {
    padding: 10px;
    border-radius: 5px;
    border: 1px solid #ccc;
-   width: 60%; /* Search input takes 60% of the width */
+   width: 60%; 
 }
 
 .search-bar button {
    padding: 10px 15px;
    border-radius: 5px;
    cursor: pointer;
-   background-color: #5b548a; /* A matching color for the button */
-   color: white;
+   background-color: #4c65af; 
    border: none;
+   transition: all .3s ease;
 }
 
-/* Responsive search bar */
+.search-bar button:hover{
+   transform: scale(.95);
+   background-color: #314788;
+}
+
 @media screen and (max-width: 768px) {
    .search-bar {
        flex-direction: column;
@@ -114,22 +222,143 @@ span {
    
    .search-bar input,
    .search-bar button {
-       width: 90%; /* Full width for smaller screens */
+       width: 90%; 
    }
 }
 
 @media screen and (max-width: 768px) {
    .tablink {
-       width: auto; /* Allow the width to auto-adjust */
+       width: auto; 
    }
    .tabcontent p {
        flex-direction: column;
    }
 }
 
-button{
-   background-color: #04AA6D;
+.form-container ::placeholder{
+   text-align: center;
+}
+
+.random-button button{
+   background-color: #4CAF50;
+   color: white;
+   width: 100px; 
+   border: none;
+   height: 50px;
+   border-radius: 25px;
+   cursor: pointer;
+   transition: all 0.3s ease;
+   box-shadow: 0 4px 8px rgba(0, 0, 0, .5); 
+}
+
+.random-button button:hover{
+   background-color: #45a049;
+   transform: scale(.95); 
+}
+
+.home-page {
+   max-width: 600px; 
+   margin: 20px auto; 
+   padding: 20px; 
+   background-color: #f0f0f0; 
+   border-radius: 10px; 
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+
+.organization-page{
+   max-width: 600px; 
+   margin: 20px auto; 
+   padding: 20px; 
+   background-color: #f0f0f0; 
+   border-radius: 10px; 
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+
+.form-container {
+   max-width: 600px; 
+   margin: 20px auto; 
+   padding: 20px; 
+   background-color: #f0f0f0; 
+   border-radius: 10px; 
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+.form-container h2 {
+   margin-bottom: 80px; 
+}
+
+.form-container form {
+   display: flex;
+   flex-direction: column;
+}
+.button-container {
+   display: flex;
+   justify-content: center;
+   width: 100%; 
+}
+
+.input-container {
+   display: flex;
+   justify-content: center; 
+   align-items: center; 
+}
+
+.form-container label {
+   margin-top: 10px;
+}
+
+.form-container input[type=text],
+.form-container input[type=url],
+.form-container input[type=email],
+.form-container input[type=date]{
+   margin-bottom: 10px;
+   padding: 8px;
+   border-radius: 25px;
+   border: none;
+   box-shadow: 0 4px 8px rgba(0, 0, 0, .2);
+   text-align: center;
+}
+
+#messageBox {
+   margin-bottom: 10px;
+   padding: 8px;
+   border-radius: 25px;
+   border: none;
+   box-shadow: 0 4px 8px rgba(0, 0, 0, .2);
+   width: 100%;
+   height: 50px; 
+   padding: 10px;
+   box-sizing: border-box;
+   resize: vertical;
+}
+
+
+
+.orgForm input[type=text],
+.orgForm input[type=url],
+.orgForm input[type=email]{
+   width: 50%;
+    max-width: 400px;
+    margin: 0 auto;
+    display: block;
+
+}
+
+.form-container button {
+   padding: 10px;
+   background-color: #4CAF50;
    color: white;
    width: 100px; 
    height: 50px;
+   border: none;
+   cursor: pointer;
+   margin-top: 5px;
+   border-radius: 25px;
+   transition: all 0.3s ease; 
+   box-shadow: 0 4px 8px rgba(0, 0, 0, .5); 
+
+}
+
+.form-container button:hover {
+   background-color: #45a049;
+   transform: scale(.95); 
 }
