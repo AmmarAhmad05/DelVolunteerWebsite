@@ -3,111 +3,151 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Volunteer Position Near me</title>
+    <meta name="description" content="Connect with meaningful volunteer opportunities in your community. Discover, engage, and make a difference.">
+    <title>Volunteer Connect - Find Your Perfect Volunteer Opportunity</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Concert+One&family=Gluten:wght@100..900&family=Signika+Negative:wght@300..700&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<div class="tab-container">
-    <button class="tablink" onclick="langName('Home', this, 'rgb(243, 122, 122)')" id="defaultOpen">HOME</button>
-    <button class="tablink" onclick="langName('Organizations', this, 'rgb(51, 124, 249)')">ORGANIZATIONS</button>
-    <button class="tablink" onclick="langName('Help', this, 'rgb(234, 215, 93)')">CONTACT</button>
-</div>
+<nav class="tab-container">
+    <button class="tablink" onclick="langName('Home', this, 'rgb(243, 122, 122)')" id="defaultOpen">
+        <i class="fas fa-home"></i> HOME
+    </button>
+    <button class="tablink" onclick="langName('Organizations', this, 'rgb(51, 124, 249)')">
+        <i class="fas fa-building"></i> ORGANIZATIONS
+    </button>
+    <button class="tablink" onclick="langName('Help', this, 'rgb(234, 215, 93)')">
+        <i class="fas fa-envelope"></i> CONTACT
+    </button>
+    <button class="settings-button" onclick="langName('Settings', this, 'rgb(147, 51, 234)')" title="Settings">
+        <i class="fas fa-cog"></i>
+    </button>
+</nav>
 
 <div id="Home" class="tabcontent">
-    <br>
     <div class="welcome-message">
-        <h1>Welcome to Volunteer Connect</h1>
-        <br>
+        <h1><i class="fas fa-hands-helping"></i> Welcome to Volunteer Connect</h1>
         <h2>Connecting Passion with Purpose</h2>
     </div>
-    <br>
     <div class="mission-statement">
-        <h1>Our Mission</h1>
-        <br>
+        <h1><i class="fas fa-bullseye"></i> Our Mission</h1>
         <div class="mission-inside">
             <h2>To empower individuals to make a positive impact in their communities by connecting them with meaningful volunteer opportunities that match their skills and passions. We believe in creating a world where everyone has the chance to contribute to the greater good, transforming both their lives and the organizations they help.</h2>
         </div>
     </div>
-    <br>
     <div class="why-statement">
-        <h1>Why Volunteer With Us?</h1>
-        <br>
+        <h1><i class="fas fa-question-circle"></i> Why Volunteer With Us?</h1>
         <div class="why-list">
-            <h2><strong>Discover Opportunities:</strong> Access a wide range of volunteering opportunities tailored to your interests and skills.</h2>
+            <h2><i class="fas fa-compass"></i> <strong>Discover Opportunities:</strong> Access a wide range of volunteering opportunities tailored to your interests and skills.</h2>
         </div>
         <div class="why-list">
-            <h2><strong>Make a Difference:</strong> Each volunteering stint is a step towards positive change, making a tangible impact in your community.</h2>
+            <h2><i class="fas fa-heart"></i> <strong>Make a Difference:</strong> Each volunteering stint is a step towards positive change, making a tangible impact in your community.</h2>
         </div>
         <div class="why-list">
-            <h2><strong>Grow Personally & Professionally:</strong> Develop new skills, meet like-minded individuals, and expand your network.</h2>
+            <h2><i class="fas fa-chart-line"></i> <strong>Grow Personally & Professionally:</strong> Develop new skills, meet like-minded individuals, and expand your network.</h2>
         </div>
     </div>
-    <br>
     <div class="conclusion">
-        <h2>Whether you're looking to give back, build your resume, or simply connect with your community, Volunteer Connect is your gateway to making a difference. Start your volunteering journey today!</h2>
+        <h2><i class="fas fa-rocket"></i> Whether you're looking to give back, build your resume, or simply connect with your community, Volunteer Connect is your gateway to making a difference. Start your volunteering journey today!</h2>
     </div>
-    <br>
     <div class="home-page">
         <div id="opportunity-info">
-        <h1>Volunteering Opportunity Generator</h1>
-        <br>
-        <h2>Generate a Volunteer Position Near me</h2>
-        <br>            
+            <h1><i class="fas fa-random"></i> Volunteering Opportunity Generator</h1>
+            <h2>Generate a Volunteer Position Near me</h2>
         </div>
-        <br>
         <div class="random-button">
-            <button onclick="aggregateVolunteerInfo()" type="button">Generate</button>
+            <button onclick="aggregateVolunteerInfo()" type="button">
+                <i class="fas fa-sync-alt"></i> Generate
+            </button>
         </div>
     </div>
 </div>
 
 <div id="Organizations" class="tabcontent">
     <div class="organization-page">
-        <h1>Organizations</h1>
+        <h1><i class="fas fa-building"></i> Our Partner Organizations</h1>
     </div>
 </div>
 
 <div id="Help" class="tabcontent">
     <div class="form-container">
-        <h1>Organization Submission Form</h1><br>
+        <h1><i class="fas fa-paper-plane"></i> Organization Submission Form</h1>
         <form action="https://api.web3forms.com/submit" method="POST" class="orgForm">
             <input type="hidden" name="access_key" value="c3a7a904-9a60-4802-ad46-ab81f2c4095e">
-            <label for="orgName">ORGANIZATION NAME:</label><br>
-            <input type="text" id="orgName" name="orgName" placeholder="Name (Required)" required><br>
-            <label for="orgName">EMAIL:</label><br>
-            <input type="email" id="orgEmail" name="email" placeholder="Email (Required)" required><br>
-            <label for="orgLink">VOLUNTEER PAGE LINK:</label><br>
-            <input type="url" id="orgLink" name="orgLink" placeholder="Link (Required)" required><br>
-            <label for="orgImage">MESSAGE:</label><br>
-            <textarea id="messageBox" name="message" placeholder="Enter your message here" required></textarea>
-            <br>
+
+            <label for="orgName"><i class="fas fa-building"></i> ORGANIZATION NAME:</label>
+            <input type="text" id="orgName" name="orgName" placeholder="Enter organization name" required>
+
+            <label for="orgEmail"><i class="fas fa-envelope"></i> EMAIL:</label>
+            <input type="email" id="orgEmail" name="email" placeholder="your.email@example.com" required>
+
+            <label for="orgLink"><i class="fas fa-link"></i> VOLUNTEER PAGE LINK:</label>
+            <input type="url" id="orgLink" name="orgLink" placeholder="https://yourorganization.com/volunteer" required>
+
+            <label for="messageBox"><i class="fas fa-comment-alt"></i> MESSAGE:</label>
+            <textarea id="messageBox" name="message" placeholder="Tell us about your organization and volunteer opportunities..." required></textarea>
+
             <div class="date-range-container">
                 <div class="date-input-container">
-                    <label for="orgStartDate">START DATE:</label><br>
-                    <input type="date" id="orgStartDate" name="orgStartDate" required><br>
+                    <label for="orgStartDate"><i class="fas fa-calendar-alt"></i> START DATE:</label>
+                    <input type="date" id="orgStartDate" name="orgStartDate" required>
                 </div>
                 <div class="date-input-container">
-                    <label for="orgEndDate">END DATE:</label><br>
-                    <input type="date" id="orgEndDate" name="orgEndDate" required><br>
+                    <label for="orgEndDate"><i class="fas fa-calendar-check"></i> END DATE:</label>
+                    <input type="date" id="orgEndDate" name="orgEndDate" required>
                 </div>
             </div>
-            <br>
+
             <div class="button-container">
-                <button type="submit">Submit</button>
+                <button type="submit"><i class="fas fa-check-circle"></i> Submit</button>
             </div>
         </form>
     </div>
-    <br>
+
     <div class="contact-info">
-        <h1>Contact</h1>
-        <br>
-        <h2>Emails:</h2>
-        <p><span>bsharief@udel.edu <br> tahamou@udel.edu <br> ammarahm@udel.edu <br> kasingh@udel.edu</span></p>
+        <h1><i class="fas fa-address-book"></i> Contact Us</h1>
+        <h2><i class="fas fa-envelope-open-text"></i> Email Addresses:</h2>
+        <p>
+            <span>
+                <i class="fas fa-at"></i> bsharief@udel.edu<br>
+                <i class="fas fa-at"></i> tahamou@udel.edu<br>
+                <i class="fas fa-at"></i> ammarahm@udel.edu<br>
+                <i class="fas fa-at"></i> kasingh@udel.edu
+            </span>
+        </p>
+    </div>
+</div>
+
+<div id="Settings" class="tabcontent">
+    <div class="settings-container">
+        <h1><i class="fas fa-cog"></i> Settings</h1>
+
+        <div class="settings-option">
+            <div class="settings-option-label">
+                <h3><i class="fas fa-moon"></i> Dark Mode</h3>
+                <p>Switch between light and dark theme</p>
+            </div>
+            <div class="toggle-switch" id="darkModeToggle" onclick="toggleDarkMode()">
+            </div>
+        </div>
+
+        <div class="settings-option">
+            <div class="settings-option-label">
+                <h3><i class="fas fa-info-circle"></i> About</h3>
+                <p>Version 2.0 - Professional Parallax Design</p>
+            </div>
+        </div>
+
+        <div class="settings-option">
+            <div class="settings-option-label">
+                <h3><i class="fas fa-palette"></i> Theme</h3>
+                <p>Modern gradient design with parallax effects</p>
+            </div>
+        </div>
     </div>
 </div>
 
