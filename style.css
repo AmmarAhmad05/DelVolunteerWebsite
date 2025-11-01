@@ -1,364 +1,748 @@
+/* ========================================
+   CSS CUSTOM PROPERTIES (Design System)
+   ======================================== */
+:root {
+   /* Modern Color Palette */
+   --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+   --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+   --success-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+   --warm-gradient: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+   --ocean-gradient: linear-gradient(135deg, #30cfd0 0%, #330867 100%);
+
+   --primary-color: #667eea;
+   --secondary-color: #764ba2;
+   --accent-color: #f5576c;
+   --success-color: #4facfe;
+   --dark-color: #2d3748;
+   --light-color: #f7fafc;
+
+   /* Neutral Colors */
+   --bg-primary: #ffffff;
+   --bg-secondary: #f7fafc;
+   --bg-tertiary: #edf2f7;
+   --text-primary: #2d3748;
+   --text-secondary: #4a5568;
+   --text-muted: #718096;
+
+   /* Shadows */
+   --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+   --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
+   --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
+   --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.15);
+   --shadow-colored: 0 10px 30px rgba(102, 126, 234, 0.3);
+
+   /* Spacing */
+   --spacing-xs: 0.5rem;
+   --spacing-sm: 1rem;
+   --spacing-md: 1.5rem;
+   --spacing-lg: 2rem;
+   --spacing-xl: 3rem;
+   --spacing-2xl: 4rem;
+
+   /* Border Radius */
+   --radius-sm: 8px;
+   --radius-md: 12px;
+   --radius-lg: 16px;
+   --radius-xl: 24px;
+   --radius-full: 9999px;
+
+   /* Transitions */
+   --transition-fast: 0.2s ease;
+   --transition-base: 0.3s ease;
+   --transition-slow: 0.5s ease;
+}
+
+/* ========================================
+   GLOBAL STYLES
+   ======================================== */
 * {
    margin: 0;
    padding: 0;
    box-sizing: border-box;
+}
+
+body {
    font-family: "Urbanist", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: bold;
+   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+   background-attachment: fixed;
+   color: var(--text-primary);
+   line-height: 1.6;
+   overflow-x: hidden;
 }
 
-body{
-   background: whitesmoke;
-   
+/* ========================================
+   ICON STYLING
+   ======================================== */
+.fas, .far, .fab {
+   margin-right: 8px;
 }
 
+h1 .fas, h1 .far {
+   margin-right: 12px;
+}
+
+.tablink .fas {
+   margin-right: 6px;
+   font-size: 14px;
+}
+
+.why-list h2 .fas {
+   color: var(--primary-color);
+   margin-right: 10px;
+}
+
+.contact-info .fas {
+   margin-right: 8px;
+   opacity: 0.9;
+}
+
+.form-container label .fas {
+   margin-right: 6px;
+   color: var(--primary-color);
+}
+
+/* ========================================
+   NAVIGATION TABS
+   ======================================== */
 .tab-container {
    display: flex;
-   justify-content: space-around;
-   flex-wrap: wrap;
-   background: #f0f0f0; 
-   padding: 10px 0;
+   justify-content: center;
+   align-items: center;
+   gap: var(--spacing-sm);
+   padding: var(--spacing-lg) var(--spacing-md);
+   background: rgba(255, 255, 255, 0.95);
+   backdrop-filter: blur(10px);
+   box-shadow: var(--shadow-lg);
+   position: sticky;
+   top: 0;
+   z-index: 1000;
 }
 
 .tablink {
-   flex: 1; 
-   background-color: rgba(0, 0, 0, 0.5);
-   color: white;
-   text-align: center;
-   border: none;
-   outline: none;
+   position: relative;
+   background: var(--bg-primary);
+   color: var(--text-primary);
+   border: 2px solid transparent;
+   padding: 14px 32px;
+   font-size: 16px;
+   font-weight: 600;
+   letter-spacing: 0.5px;
+   text-transform: uppercase;
    cursor: pointer;
-   padding: 14px 16px;
-   font-size: 17px;
-   min-width: 100px; 
-   margin: 2px;
-   border-radius: 5px; 
-   transition: background-color 0.3s; 
-   transition: all .3s ease;
-   box-shadow: 0 4px 8px rgba(0, 0, 0, .2);
+   border-radius: var(--radius-full);
+   transition: all var(--transition-base);
+   box-shadow: var(--shadow-md);
+   overflow: hidden;
+}
+
+.tablink::before {
+   content: '';
+   position: absolute;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   background: var(--primary-gradient);
+   opacity: 0;
+   transition: opacity var(--transition-base);
+   z-index: -1;
 }
 
 .tablink:hover {
-   background-color: #000000;
-   transform: scale(1.01);
+   transform: translateY(-2px);
+   box-shadow: var(--shadow-colored);
+   color: white;
 }
 
+.tablink:hover::before {
+   opacity: 1;
+}
+
+.tablink:active {
+   transform: translateY(0);
+}
+
+/* Active tab state */
+.tablink[style*="rgb(243, 122, 122)"],
+.tablink[style*="rgb(51, 124, 249)"],
+.tablink[style*="rgb(234, 215, 93)"] {
+   color: white;
+}
+
+.tablink[style*="rgb(243, 122, 122)"]::before {
+   background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+   opacity: 1;
+}
+
+.tablink[style*="rgb(51, 124, 249)"]::before {
+   background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+   opacity: 1;
+}
+
+.tablink[style*="rgb(234, 215, 93)"]::before {
+   background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+   opacity: 1;
+}
+
+/* ========================================
+   TAB CONTENT
+   ======================================== */
 .tabcontent {
-   color: black;
    display: none;
-   padding: 50px;
-   text-align: center;
-   background: white; 
+   padding: var(--spacing-2xl) var(--spacing-md);
+   animation: fadeIn 0.5s ease;
+   min-height: calc(100vh - 100px);
 }
 
-p {
-   font-family: "Madimi One", sans-serif;
-   font-weight: 400;
-   font-style: normal; 
-   padding: 15px;
-}
-
-span {
-   color: rgb(0, 0, 0);
-   padding: 5px;
+@keyframes fadeIn {
+   from {
+      opacity: 0;
+      transform: translateY(20px);
+   }
+   to {
+      opacity: 1;
+      transform: translateY(0);
+   }
 }
 
 #Home {
    display: flex;
+   flex-direction: column;
+   align-items: center;
 }
 
-#Home a{
-   color: green; 
-   text-decoration: none; 
+/* ========================================
+   CARD COMPONENTS
+   ======================================== */
+.welcome-message,
+.mission-statement,
+.why-statement,
+.conclusion,
+.home-page,
+.organization-page,
+.form-container,
+.contact-info {
+   max-width: 1000px;
+   width: 100%;
+   margin: var(--spacing-md) auto;
+   padding: var(--spacing-xl);
+   background: rgba(255, 255, 255, 0.98);
+   border-radius: var(--radius-xl);
+   box-shadow: var(--shadow-xl);
+   animation: slideUp 0.6s ease;
+   transition: transform var(--transition-base), box-shadow var(--transition-base);
 }
 
-#Organizations {
-   max-width: 80%; 
-   margin: 20px auto; 
-   padding: 20px; 
-   background-color: #f0f0f0; 
-   border-radius: 10px; 
-   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+@keyframes slideUp {
+   from {
+      opacity: 0;
+      transform: translateY(30px);
+   }
+   to {
+      opacity: 1;
+      transform: translateY(0);
+   }
 }
 
-.welcome-message{
-   max-width: 80%; 
-   margin: 20px auto; 
-   padding: 20px; 
-   background-color: #f0f0f0; 
-   border-radius: 10px; 
-   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+.welcome-message:hover,
+.mission-statement:hover,
+.why-statement:hover,
+.conclusion:hover,
+.home-page:hover,
+.form-container:hover {
+   transform: translateY(-5px);
+   box-shadow: var(--shadow-xl), 0 25px 50px rgba(102, 126, 234, 0.2);
 }
 
+/* ========================================
+   WELCOME SECTION
+   ======================================== */
+.welcome-message {
+   background: var(--primary-gradient);
+   color: white;
+   text-align: center;
+   border: none;
+}
 
+.welcome-message h1 {
+   font-size: 3.5rem;
+   font-weight: 800;
+   margin-bottom: var(--spacing-sm);
+   text-shadow: 2px 4px 8px rgba(0, 0, 0, 0.2);
+   letter-spacing: -1px;
+}
 
-.mission-statement{
-   max-width: 80%; 
-   margin: 20px auto; 
-   padding: 20px; 
-   background-image: linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)), url(banner.jpg); 
+.welcome-message h2 {
+   font-size: 1.75rem;
+   font-weight: 400;
+   opacity: 0.95;
+   letter-spacing: 1px;
+}
+
+/* ========================================
+   MISSION SECTION
+   ======================================== */
+.mission-statement {
+   position: relative;
+   background-image: linear-gradient(rgba(102, 126, 234, 0.92), rgba(118, 75, 162, 0.92)), url(banner.jpg);
    background-size: cover;
    background-position: center;
-   border-radius: 10px; 
-   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+   color: white;
+   text-align: center;
 }
 
-.mission-statement h1{
-   max-width: 30%; 
-   margin: 20px auto; 
-   padding: 20px; 
-   background-color: rgba(255, 255, 255, 0.6); 
-   border-radius: 10px; 
-   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); 
+.mission-statement h1 {
+   display: inline-block;
+   padding: var(--spacing-md) var(--spacing-xl);
+   background: rgba(255, 255, 255, 0.25);
+   backdrop-filter: blur(10px);
+   border-radius: var(--radius-lg);
+   font-size: 2.5rem;
+   font-weight: 700;
+   margin-bottom: var(--spacing-lg);
+   box-shadow: var(--shadow-lg);
 }
 
-.mission-inside{
-   max-width: 80%; 
-   margin: 20px auto; 
-   padding: 20px; 
-   background-color: rgba(153, 255, 189, 0.9); 
-   border-radius: 10px; 
-   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); 
+.mission-inside {
+   padding: var(--spacing-xl);
+   background: rgba(255, 255, 255, 0.95);
+   border-radius: var(--radius-lg);
+   box-shadow: var(--shadow-xl);
+   margin-top: var(--spacing-md);
 }
 
-.why-statement{
-   max-width: 80%; 
-   margin: 20px auto; 
-   padding: 20px; 
-   background-image: linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)), url(whybanner.jpeg); 
+.mission-inside h2 {
+   color: var(--text-primary);
+   font-size: 1.25rem;
+   line-height: 1.8;
+   font-weight: 500;
+}
+
+/* ========================================
+   WHY VOLUNTEER SECTION
+   ======================================== */
+.why-statement {
+   background-image: linear-gradient(rgba(79, 172, 254, 0.92), rgba(0, 242, 254, 0.92)), url(whybanner.jpeg);
    background-size: cover;
    background-position: center;
-   border-radius: 10px; 
-   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+   color: white;
+   text-align: center;
 }
 
-.why-statement h1{
-   max-width: 40%; 
-   margin: 20px auto; 
-   padding: 20px; 
-   background-color: rgba(255, 255, 255, 0.6); 
-   border-radius: 10px; 
-   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); 
+.why-statement h1 {
+   display: inline-block;
+   padding: var(--spacing-md) var(--spacing-xl);
+   background: rgba(255, 255, 255, 0.25);
+   backdrop-filter: blur(10px);
+   border-radius: var(--radius-lg);
+   font-size: 2.5rem;
+   font-weight: 700;
+   margin-bottom: var(--spacing-lg);
+   box-shadow: var(--shadow-lg);
 }
 
 .why-list {
-   max-width: 80%; 
-   margin: 20px auto; 
-   padding: 20px; 
-   background-color: rgba(149, 239, 255, 0.9); 
-   border-radius: 10px; 
-   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); 
+   padding: var(--spacing-lg);
+   background: rgba(255, 255, 255, 0.95);
+   border-radius: var(--radius-lg);
+   margin: var(--spacing-md) 0;
+   box-shadow: var(--shadow-lg);
+   transition: all var(--transition-base);
+   border-left: 5px solid transparent;
 }
 
+.why-list:nth-child(odd) {
+   border-left-color: #4facfe;
+}
 
-.conclusion{
-   max-width: 80%; 
-   margin: 20px auto; 
-   padding: 20px; 
-   background-color: #f0f0f0; 
-   border-radius: 10px; 
-   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+.why-list:nth-child(even) {
+   border-left-color: #00f2fe;
+}
+
+.why-list:hover {
+   transform: translateX(10px);
+   box-shadow: var(--shadow-xl);
+}
+
+.why-list h2 {
+   color: var(--text-primary);
+   font-size: 1.15rem;
+   line-height: 1.7;
+   font-weight: 500;
+}
+
+.why-list strong {
+   color: var(--primary-color);
+   font-weight: 700;
+   font-size: 1.2rem;
+}
+
+/* ========================================
+   CONCLUSION SECTION
+   ======================================== */
+.conclusion {
+   background: var(--warm-gradient);
+   color: white;
+   text-align: center;
+}
+
+.conclusion h2 {
+   font-size: 1.35rem;
+   line-height: 1.8;
+   font-weight: 500;
+}
+
+/* ========================================
+   VOLUNTEER GENERATOR
+   ======================================== */
+.home-page {
+   text-align: center;
+   background: rgba(255, 255, 255, 0.98);
+}
+
+#opportunity-info h1 {
+   font-size: 2.25rem;
+   font-weight: 700;
+   color: var(--primary-color);
+   margin-bottom: var(--spacing-md);
+}
+
+#opportunity-info h2 {
+   font-size: 1.25rem;
+   color: var(--text-secondary);
+   margin-bottom: var(--spacing-lg);
+}
+
+#opportunity-info img {
+   margin: var(--spacing-md) 0;
+   border-radius: var(--radius-md);
+   box-shadow: var(--shadow-lg);
+   transition: transform var(--transition-base);
+}
+
+#opportunity-info img:hover {
+   transform: scale(1.05);
+}
+
+#opportunity-info a {
+   color: var(--primary-color);
+   text-decoration: none;
+   font-weight: 600;
+   border-bottom: 2px solid transparent;
+   transition: border-color var(--transition-fast);
+}
+
+#opportunity-info a:hover {
+   border-bottom-color: var(--primary-color);
+}
+
+.random-button {
+   margin-top: var(--spacing-lg);
+}
+
+.random-button button {
+   background: var(--success-gradient);
+   color: white;
+   border: none;
+   padding: 16px 48px;
+   font-size: 18px;
+   font-weight: 700;
+   border-radius: var(--radius-full);
+   cursor: pointer;
+   box-shadow: var(--shadow-lg);
+   transition: all var(--transition-base);
+   text-transform: uppercase;
+   letter-spacing: 1px;
+}
+
+.random-button button:hover {
+   transform: translateY(-3px) scale(1.05);
+   box-shadow: 0 15px 35px rgba(79, 172, 254, 0.4);
+}
+
+.random-button button:active {
+   transform: translateY(-1px) scale(1.02);
+}
+
+/* ========================================
+   ORGANIZATIONS PAGE
+   ======================================== */
+#Organizations {
+   max-width: 1200px;
+   margin: 0 auto;
+   background: rgba(255, 255, 255, 0.95);
+   border-radius: var(--radius-xl);
+   padding: var(--spacing-xl);
+   box-shadow: var(--shadow-xl);
+}
+
+.organization-page {
+   text-align: center;
+}
+
+.organization-page h1 {
+   font-size: 2.5rem;
+   font-weight: 700;
+   color: var(--primary-color);
+   margin-bottom: var(--spacing-xl);
+}
+
+#Organizations p {
+   display: inline-block;
+   margin: var(--spacing-md);
+   padding: var(--spacing-lg);
+   background: white;
+   border-radius: var(--radius-lg);
+   box-shadow: var(--shadow-md);
+   transition: all var(--transition-base);
+}
+
+#Organizations p:hover {
+   transform: translateY(-8px);
+   box-shadow: var(--shadow-xl);
 }
 
 #Organizations a {
-   color: black;
+   color: var(--text-primary);
    text-decoration: none;
+   font-weight: 600;
+   transition: color var(--transition-fast);
+}
+
+#Organizations a:hover {
+   color: var(--primary-color);
 }
 
 #Organizations img {
-    
-   transition: transform .2s ease; 
+   transition: transform var(--transition-base);
+   border-radius: var(--radius-md);
+   margin-bottom: var(--spacing-sm);
 }
 
 #Organizations img:hover {
-    transform: scale(1.5); 
+   transform: scale(1.15);
 }
 
-#Help {
-   background-color: background-color(234, 215, 93);
+/* ========================================
+   FORM STYLING
+   ======================================== */
+.form-container {
+   max-width: 700px;
 }
 
-.contact-info {
-   margin-top: 20px;
-   background: #eee; 
-   padding: 20px;
-   border-radius: 10px;
-   box-shadow: 0 4px 8px rgba(0, 0, 0, .1);
-}
-
-.search-bar {
-   margin-top: 20px;
-   display: flex;
-   justify-content: center;
-   gap: 10px; 
-}
-
-.search-bar input {
-   padding: 10px;
-   border-radius: 5px;
-   border: 1px solid #ccc;
-   width: 60%; 
-}
-
-.search-bar button {
-   padding: 10px 15px;
-   border-radius: 5px;
-   cursor: pointer;
-   background-color: #4c65af; 
-   border: none;
-   transition: all .3s ease;
-}
-
-.search-bar button:hover{
-   transform: scale(.95);
-   background-color: #314788;
-}
-
-@media screen and (max-width: 768px) {
-   .search-bar {
-       flex-direction: column;
-   }
-   
-   .search-bar input,
-   .search-bar button {
-       width: 90%; 
-   }
-}
-
-@media screen and (max-width: 768px) {
-   .tablink {
-       width: auto; 
-   }
-   .tabcontent p {
-       flex-direction: column;
-   }
-}
-
-.form-container ::placeholder{
+.form-container h1 {
+   font-size: 2.25rem;
+   font-weight: 700;
+   color: var(--primary-color);
+   margin-bottom: var(--spacing-xl);
    text-align: center;
 }
 
-.random-button button{
-   background-color: #4CAF50;
-   color: white;
-   width: 100px; 
-   border: none;
-   height: 50px;
-   border-radius: 25px;
-   cursor: pointer;
-   transition: all 0.3s ease;
-   box-shadow: 0 4px 8px rgba(0, 0, 0, .5); 
-}
-
-.random-button button:hover{
-   background-color: #45a049;
-   transform: scale(.95); 
-}
-
-.home-page {
-   max-width: 600px; 
-   margin: 20px auto; 
-   padding: 20px; 
-   background-color: #f0f0f0; 
-   border-radius: 10px; 
-   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-}
-
-.organization-page{
-   max-width: 600px; 
-   margin: 20px auto; 
-   padding: 20px; 
-   background-color: #f0f0f0; 
-   border-radius: 10px; 
-   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-}
-
-.form-container {
-   max-width: 600px; 
-   margin: 20px auto; 
-   padding: 20px; 
-   background-color: #f0f0f0; 
-   border-radius: 10px; 
-   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-}
-.form-container h2 {
-   margin-bottom: 80px; 
-}
-
-.form-container form {
+.orgForm {
    display: flex;
    flex-direction: column;
-}
-.button-container {
-   display: flex;
-   justify-content: center;
-   width: 100%; 
-}
-
-.input-container {
-   display: flex;
-   justify-content: center; 
-   align-items: center; 
+   gap: var(--spacing-md);
 }
 
 .form-container label {
-   margin-top: 10px;
+   font-weight: 600;
+   color: var(--text-primary);
+   font-size: 0.9rem;
+   text-transform: uppercase;
+   letter-spacing: 0.5px;
+   margin-bottom: var(--spacing-xs);
 }
 
-.form-container input[type=text],
-.form-container input[type=url],
-.form-container input[type=email],
-.form-container input[type=date]{
-   margin-bottom: 10px;
-   padding: 8px;
-   border-radius: 25px;
-   border: none;
-   box-shadow: 0 4px 8px rgba(0, 0, 0, .2);
-   text-align: center;
+.form-container input[type="text"],
+.form-container input[type="url"],
+.form-container input[type="email"],
+.form-container input[type="date"],
+.form-container textarea {
+   width: 100%;
+   padding: 14px 20px;
+   border: 2px solid var(--bg-tertiary);
+   border-radius: var(--radius-md);
+   font-size: 16px;
+   font-family: "Urbanist", sans-serif;
+   transition: all var(--transition-base);
+   background: var(--bg-secondary);
+}
+
+.form-container input:focus,
+.form-container textarea:focus {
+   outline: none;
+   border-color: var(--primary-color);
+   background: white;
+   box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+}
+
+.form-container input::placeholder,
+.form-container textarea::placeholder {
+   color: var(--text-muted);
+   text-align: left;
 }
 
 #messageBox {
-   margin-bottom: 10px;
-   padding: 8px;
-   border-radius: 25px;
-   border: none;
-   box-shadow: 0 4px 8px rgba(0, 0, 0, .2);
-   width: 100%;
-   height: 50px; 
-   padding: 10px;
-   box-sizing: border-box;
+   min-height: 120px;
    resize: vertical;
+   font-family: "Urbanist", sans-serif;
 }
 
+.date-range-container {
+   display: flex;
+   gap: var(--spacing-md);
+}
 
+.date-input-container {
+   flex: 1;
+}
 
-.orgForm input[type=text],
-.orgForm input[type=url],
-.orgForm input[type=email]{
-   width: 50%;
-    max-width: 400px;
-    margin: 0 auto;
-    display: block;
-
+.button-container {
+   display: flex;
+   justify-content: center;
+   margin-top: var(--spacing-md);
 }
 
 .form-container button {
-   padding: 10px;
-   background-color: #4CAF50;
+   background: var(--primary-gradient);
    color: white;
-   width: 100px; 
-   height: 50px;
    border: none;
+   padding: 16px 48px;
+   font-size: 18px;
+   font-weight: 700;
+   border-radius: var(--radius-full);
    cursor: pointer;
-   margin-top: 5px;
-   border-radius: 25px;
-   transition: all 0.3s ease; 
-   box-shadow: 0 4px 8px rgba(0, 0, 0, .5); 
-
+   box-shadow: var(--shadow-lg);
+   transition: all var(--transition-base);
+   text-transform: uppercase;
+   letter-spacing: 1px;
 }
 
 .form-container button:hover {
-   background-color: #45a049;
-   transform: scale(.95); 
+   transform: translateY(-3px);
+   box-shadow: var(--shadow-colored);
 }
+
+.form-container button:active {
+   transform: translateY(-1px);
+}
+
+/* ========================================
+   CONTACT INFO
+   ======================================== */
+.contact-info {
+   text-align: center;
+   background: var(--secondary-gradient);
+   color: white;
+}
+
+.contact-info h1 {
+   font-size: 2.25rem;
+   font-weight: 700;
+   margin-bottom: var(--spacing-md);
+}
+
+.contact-info h2 {
+   font-size: 1.5rem;
+   font-weight: 600;
+   margin-bottom: var(--spacing-sm);
+}
+
+.contact-info p {
+   font-size: 1.1rem;
+   line-height: 2;
+}
+
+.contact-info span {
+   color: white;
+   opacity: 0.95;
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+@media screen and (max-width: 768px) {
+   .tab-container {
+      flex-wrap: wrap;
+      padding: var(--spacing-sm);
+   }
+
+   .tablink {
+      padding: 12px 20px;
+      font-size: 14px;
+   }
+
+   .tabcontent {
+      padding: var(--spacing-lg) var(--spacing-sm);
+   }
+
+   .welcome-message h1 {
+      font-size: 2.25rem;
+   }
+
+   .welcome-message h2 {
+      font-size: 1.25rem;
+   }
+
+   .mission-statement h1,
+   .why-statement h1 {
+      font-size: 1.75rem;
+      padding: var(--spacing-sm) var(--spacing-md);
+   }
+
+   .welcome-message,
+   .mission-statement,
+   .why-statement,
+   .conclusion,
+   .home-page,
+   .form-container,
+   .contact-info {
+      padding: var(--spacing-lg);
+      margin: var(--spacing-sm) auto;
+   }
+
+   .date-range-container {
+      flex-direction: column;
+   }
+
+   #Organizations p {
+      display: block;
+      margin: var(--spacing-sm) auto;
+   }
+
+   .form-container button,
+   .random-button button {
+      padding: 14px 36px;
+      font-size: 16px;
+   }
+}
+
+@media screen and (max-width: 480px) {
+   .welcome-message h1 {
+      font-size: 1.75rem;
+   }
+
+   .welcome-message h2 {
+      font-size: 1rem;
+   }
+
+   .mission-statement h1,
+   .why-statement h1 {
+      font-size: 1.5rem;
+   }
+}
+
+/* ========================================
+   UTILITY CLASSES
+   ======================================== */
+.text-center {
+   text-align: center;
+}
+
+.mt-1 { margin-top: var(--spacing-sm); }
+.mt-2 { margin-top: var(--spacing-md); }
+.mt-3 { margin-top: var(--spacing-lg); }
+
+.mb-1 { margin-bottom: var(--spacing-sm); }
+.mb-2 { margin-bottom: var(--spacing-md); }
+.mb-3 { margin-bottom: var(--spacing-lg); }
