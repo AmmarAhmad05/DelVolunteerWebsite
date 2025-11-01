@@ -1,3 +1,4 @@
+// Tab navigation function
 function langName(name, elmnt, color) {
     var i, tabcontent, tablinks;
     tabcontent = document.getElementsByClassName("tabcontent");
@@ -10,8 +11,58 @@ function langName(name, elmnt, color) {
     }
     document.getElementById(name).style.display = "block";
     elmnt.style.backgroundColor = color;
- }
- document.getElementById("defaultOpen").click();
+
+    // Reinitialize parallax after tab switch
+    setTimeout(initParallax, 100);
+}
+
+// Initialize default tab
+document.getElementById("defaultOpen").click();
+
+// Parallax scrolling effect
+function initParallax() {
+    const parallaxElements = document.querySelectorAll('.welcome-message, .mission-statement, .why-statement, .conclusion, .home-page, .form-container, .contact-info');
+
+    window.addEventListener('scroll', function() {
+        let scrollPosition = window.pageYOffset;
+
+        parallaxElements.forEach((element, index) => {
+            if (element.offsetParent !== null) { // Check if element is visible
+                let speed = 0.5;
+                let yPos = -(scrollPosition * speed);
+                element.style.transform = `translateY(${yPos * 0.1}px)`;
+            }
+        });
+    });
+}
+
+// Mouse parallax effect for cards
+document.addEventListener('mousemove', function(e) {
+    const cards = document.querySelectorAll('.welcome-message, .mission-statement, .why-statement, .home-page, .form-container');
+
+    cards.forEach(card => {
+        if (card.offsetParent !== null) {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+
+            const rotateX = (y - centerY) / 30;
+            const rotateY = (centerX - x) / 30;
+
+            if (x >= 0 && x <= rect.width && y >= 0 && y <= rect.height) {
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+            } else {
+                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+            }
+        }
+    });
+});
+
+// Initialize parallax on page load
+window.addEventListener('load', initParallax);
 
 
 
