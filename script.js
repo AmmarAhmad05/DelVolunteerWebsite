@@ -64,6 +64,36 @@ document.addEventListener('mousemove', function(e) {
 // Initialize parallax on page load
 window.addEventListener('load', initParallax);
 
+// Dark Mode Functionality
+function toggleDarkMode() {
+    const body = document.body;
+    const toggle = document.getElementById('darkModeToggle');
+
+    body.classList.toggle('dark-mode');
+    toggle.classList.toggle('active');
+
+    // Save preference to localStorage
+    const isDarkMode = body.classList.contains('dark-mode');
+    localStorage.setItem('darkMode', isDarkMode ? 'enabled' : 'disabled');
+}
+
+// Load dark mode preference on page load
+function loadDarkModePreference() {
+    const darkModePreference = localStorage.getItem('darkMode');
+    const body = document.body;
+    const toggle = document.getElementById('darkModeToggle');
+
+    if (darkModePreference === 'enabled') {
+        body.classList.add('dark-mode');
+        if (toggle) {
+            toggle.classList.add('active');
+        }
+    }
+}
+
+// Initialize dark mode on page load
+window.addEventListener('DOMContentLoaded', loadDarkModePreference);
+
 
 
 const volunteeringData = {
